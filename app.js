@@ -1,7 +1,6 @@
 let score = [0, 0]; // Main score
 let roundScore = 0; // Round score
 let currentPlayer = 0; // Active player
-// let isPlaying = true;
 
 var dice = document.querySelector(".dice");
 const rollBtn = document.querySelector(".btn-roll");
