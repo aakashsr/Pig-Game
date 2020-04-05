@@ -40,3 +40,31 @@ function updateCurrentScore() {
     }
   }
 }
+
+function holdScore() {
+  if (isPlaying) {
+    // Add round score to global score
+    score[currentPlayer] += roundScore;
+    console.log(score[currentPlayer]);
+
+    // Check if player wins
+    if (score[currentPlayer] >= 10) {
+      document.querySelector(`#name-${currentPlayer}`).textContent = "Winner!";
+      document.querySelector(".player-0-panel").classList.remove("active");
+      document.querySelector(".player-1-panel").classList.remove("active");
+      document
+        .querySelector(`.player-${currentPlayer}-panel`)
+        .classList.add("winner");
+      isPlaying = false;
+    }
+
+    //  Update the UI of main score
+    document.querySelector(`#score-${currentPlayer}`).textContent =
+      score[currentPlayer];
+
+    togglePlayer();
+
+    // Hide dice again
+    dice.style.display = "none";
+  }
+}
