@@ -1,10 +1,42 @@
-/*
-GAME RULES:
+let score = [0, 0]; // Main score
+let roundScore = 0; // Round score
+let currentPlayer = 0; // Active player
+// let isPlaying = true;
 
-- The game has 2 players, playing in rounds
-- In each turn, a player rolls a dice as many times as he whishes. Each result get added to his ROUND score
-- BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn
-- The player can choose to 'Hold', which means that his ROUND score gets added to his GLBAL score. After that, it's the next player's turn
-- The first player to reach 100 points on GLOBAL score wins the game
+var dice = document.querySelector(".dice");
+const rollBtn = document.querySelector(".btn-roll");
+const holdBtn = document.querySelector(".btn-hold");
+const newGameBtn = document.querySelector(".btn-new");
 
-*/
+// Calling setting score to 0 and hiding dice initially
+init();
+
+rollBtn.addEventListener("click", updateCurrentScore);
+holdBtn.addEventListener("click", holdScore);
+
+newGameBtn.addEventListener("click", init);
+
+function updateCurrentScore() {
+  if (isPlaying) {
+    // Show dice
+    dice.style.display = "block";
+
+    // Get random dice value
+    let diceValue = Math.floor(Math.random() * 6 + 1);
+
+    // Get random dice pic every time
+    dice.src = `dice-${diceValue}.png`;
+
+    if (diceValue > 1) {
+      // Add the dice value to current score
+      roundScore += diceValue;
+
+      // Update UI of current score
+      document.querySelector(
+        `#current-${currentPlayer}`
+      ).textContent = roundScore;
+    } else {
+      togglePlayer();
+    }
+  }
+}
