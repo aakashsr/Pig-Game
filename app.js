@@ -68,3 +68,18 @@ function holdScore() {
     dice.style.display = "none";
   }
 }
+
+function togglePlayer() {
+  // Make round score to 0
+  roundScore = 0;
+
+  // Update UI of current to 0
+  document.querySelector(`#current-${currentPlayer}`).textContent = roundScore;
+
+  // Toggle active player
+  currentPlayer === 0 ? (currentPlayer = 1) : (currentPlayer = 0);
+
+  // Toggle active class
+  document.querySelector(".player-0-panel").classList.toggle("active");
+  document.querySelector(".player-1-panel").classList.toggle("active");
+}
