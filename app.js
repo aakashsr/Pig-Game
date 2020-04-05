@@ -2,6 +2,9 @@ let score = [0, 0]; // Main score
 let roundScore = 0; // Round score
 let currentPlayer = 0; // Active player
 
+let count = 0;
+var lastRoll = 0;
+
 var dice = document.querySelector(".dice");
 const rollBtn = document.querySelector(".btn-roll");
 const holdBtn = document.querySelector(".btn-hold");
@@ -22,11 +25,35 @@ function updateCurrentScore() {
 
     // Get random dice value
     let diceValue = Math.floor(Math.random() * 6 + 1);
+    console.log(diceValue);
+    // diceValue = 6;
+    let thisRoll = diceValue;
 
     // Get random dice pic every time
     dice.src = `dice-${diceValue}.png`;
 
-    if (diceValue > 1) {
+    if (diceValue === 6) {
+      lastRoll = 6;
+      count += 1;
+    } else {
+      lastRoll = 0;
+      count = 0;
+    }
+
+    if (diceValue === 1) {
+      togglePlayer();
+    } else if (thisRoll === 6 && lastRoll === 6 && count === 2) {
+      score[currentPlayer] = 0;
+
+      // update UI of main score to 0
+      document.querySelector(`#score-${currentPlayer}`).textContent =
+        score[currentPlayer];
+      // First update UI then toggle player
+      togglePlayer();
+
+      // Hide the dice
+      dice.style.display = "none";
+    } else {
       // Add the dice value to current score
       roundScore += diceValue;
 
@@ -34,8 +61,6 @@ function updateCurrentScore() {
       document.querySelector(
         `#current-${currentPlayer}`
       ).textContent = roundScore;
-    } else {
-      togglePlayer();
     }
   }
 }
@@ -44,10 +69,10 @@ function holdScore() {
   if (isPlaying) {
     // Add round score to global score
     score[currentPlayer] += roundScore;
-    console.log(score[currentPlayer]);
+    // console.log(score[currentPlayer]);
 
     // Check if player wins
-    if (score[currentPlayer] >= 10) {
+    if (score[currentPlayer] >= 100) {
       document.querySelector(`#name-${currentPlayer}`).textContent = "Winner!";
       document.querySelector(".player-0-panel").classList.remove("active");
       document.querySelector(".player-1-panel").classList.remove("active");
