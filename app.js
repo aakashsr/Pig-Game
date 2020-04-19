@@ -49,9 +49,6 @@ function updateCurrentScore() {
 
     if (diceValue0 === 1 || diceValue1 === 1) {
       togglePlayer();
-      // Hide dice again
-      dice0.style.display = "none";
-      dice1.style.display = "none";
     } else if (thisRoll === 6 && thatRoll === 6) {
       score[currentPlayer] = 0;
 
@@ -60,11 +57,6 @@ function updateCurrentScore() {
         score[currentPlayer];
       // First update UI then toggle player
       togglePlayer();
-
-      // Hide the dice
-      dice0.style.display = "none";
-      dice1.style.display = "none";
-      //  dice.style.display = "none";
     } else {
       // Add the dice value to current score
       roundScore += diceValue0 + diceValue1;
