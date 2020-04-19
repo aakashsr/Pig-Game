@@ -16,14 +16,19 @@
 }
 
 body {
-    background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(backggg.jpg);
+    /* background-image: linear-gradient(rgba(174, 209, 133, 0.9), rgba(174, 209, 133, 0.02)), url('/2638301.jpg'); */
+    background: url('./2638312op.jpg');
+    /* background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('./2638309.jpg'); */
     background-size: cover;
-    background-position: center;
+    background-position: initial;
     font-family: Lato;
     font-weight: 300;
     position: relative;
     height: 100vh;
     color: #555;
+    /* background:linear-gradient(rgba(351, 483, 527, 0.5), rgba(302, 377, 77, 0.4)),
+    url(./2638305.jpg); */
 }
 
 .wrapper {
@@ -168,7 +173,7 @@ body {
     padding: 16px 50px;
     background: #fff;
     border-radius: 5px;
-    top: 72%;
+    top: 74%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -286,10 +291,8 @@ i {
 
 .btn-instructions {
     top: 92%;
-    left: 91%;
+    left: 89.5%;
     z-index: 2;
-    /* top: 83%;
-    left: 84%; */
 }
 
 .name0-wrapper {
@@ -336,11 +339,6 @@ i {
     transform: translateY(-50%);
     z-index: 2;
 }
-
-/* .wrapper::after {
-    content: '';
-   
-} */
 
 .instruction-overlay {
     width: 100%;
