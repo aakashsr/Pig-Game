@@ -27,6 +27,8 @@ instructionBtn.addEventListener("click", () => {
 });
 
 function updateCurrentScore() {
+  // Hide the target score instruction
+  document.querySelector(".tagetscoreContainer").style.display = "none";
   if (isPlaying) {
     // Show dice
     dice0.style.display = "block";
@@ -86,7 +88,7 @@ function holdScore() {
       score[currentPlayer];
 
     // Check if player wins
-    if (score[currentPlayer] >= 100) {
+    if (score[currentPlayer] >= 20) {
       document.querySelector(`#name-${currentPlayer}`).textContent = "Winner!";
       document.querySelector(".player-0-panel").classList.remove("active");
       console.log("removed");
