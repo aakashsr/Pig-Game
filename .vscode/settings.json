@@ -10,7 +10,10 @@
         "panel.border": "#c9e4bc",
         "sideBar.border": "#c9e4bc",
         "editorGroup.border": "#c9e4bc",
-        "tab.activeBorder": "#c9e4bc"
+        "tab.activeBorder": "#c9e4bc",
+        "statusBar.border": "#acd598",
+        "titleBar.border": "#acd598"
     },
-    "peacock.color": "#acd598"
+    "peacock.color": "#acd598",
+    "liveServer.settings.port": 5501
 }

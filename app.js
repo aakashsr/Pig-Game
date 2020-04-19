@@ -5,7 +5,9 @@ let currentPlayer = 0; // Active player
 let count = 0;
 var lastRoll = 0;
 
-var dice = document.querySelector(".dice");
+var dice0 = document.querySelector(".dice-0");
+var dice1 = document.querySelector(".dice-1");
+// var dice = document.querySelector(".dice");
 const rollBtn = document.querySelector(".btn-roll");
 const holdBtn = document.querySelector(".btn-hold");
 const newGameBtn = document.querySelector(".btn-new");
@@ -21,28 +23,40 @@ newGameBtn.addEventListener("click", init);
 function updateCurrentScore() {
   if (isPlaying) {
     // Show dice
-    dice.style.display = "block";
+    dice0.style.display = "block";
+    dice1.style.display = "block";
+    // dice.style.display = "block";
 
     // Get random dice value
-    let diceValue = Math.floor(Math.random() * 6 + 1);
-    console.log(diceValue);
+    let diceValue0 = Math.floor(Math.random() * 6 + 1);
+    let diceValue1 = Math.floor(Math.random() * 6 + 1);
+    // let diceValue = Math.floor(Math.random() * 6 + 1);
+    console.log(diceValue0, diceValue1);
+    // console.log(diceValue);
     // diceValue = 6;
-    let thisRoll = diceValue;
+    let thisRoll = diceValue0;
+    let thatRoll = diceValue1;
+    // let thisRoll = diceValue;
 
     // Get random dice pic every time
-    dice.src = `dice-${diceValue}.png`;
+    dice0.src = `dice-${diceValue0}.png`;
+    dice1.src = `dice-${diceValue1}.png`;
+    // dice.src = `dice-${diceValue}.png`;
 
-    if (diceValue === 6) {
-      lastRoll = 6;
-      count += 1;
-    } else {
-      lastRoll = 0;
-      count = 0;
-    }
+    // if (diceValue === 6) {
+    //   lastRoll = 6;
+    //   count += 1;
+    // } else {
+    //   lastRoll = 0;
+    //   count = 0;
+    // }
 
-    if (diceValue === 1) {
+    if (diceValue0 === 1 || diceValue1 === 1) {
       togglePlayer();
-    } else if (thisRoll === 6 && lastRoll === 6 && count === 2) {
+      // Hide dice again
+      dice0.style.display = "none";
+      dice1.style.display = "none";
+    } else if (thisRoll === 6 && thatRoll === 6) {
       score[currentPlayer] = 0;
 
       // update UI of main score to 0
@@ -52,10 +66,13 @@ function updateCurrentScore() {
       togglePlayer();
 
       // Hide the dice
-      dice.style.display = "none";
+      dice0.style.display = "none";
+      dice1.style.display = "none";
+      //  dice.style.display = "none";
     } else {
       // Add the dice value to current score
-      roundScore += diceValue;
+      roundScore += diceValue0 + diceValue1;
+      //  roundScore += diceValue;
 
       // Update UI of current score
       document.querySelector(
@@ -89,7 +106,9 @@ function holdScore() {
     togglePlayer();
 
     // Hide dice again
-    dice.style.display = "none";
+    dice0.style.display = "none";
+    dice1.style.display = "none";
+    // dice.style.display = "none";
   }
 }
 
@@ -110,7 +129,9 @@ function togglePlayer() {
 
 function init() {
   // Hide dice initially
-  dice.style.display = "none";
+  dice0.style.display = "none";
+  dice1.style.display = "none";
+  // dice.style.display = "none";
 
   score = [0, 0];
   roundScore = 0;
