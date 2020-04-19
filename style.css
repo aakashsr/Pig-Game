@@ -233,7 +233,6 @@ i {
 
 .winner {
     background-color: #f7f7f7;
-    font-weight: bold;
 }
 
 .winner .player-name {
@@ -264,6 +263,7 @@ i {
 .logo0,
 .logo1 {
     width: 98px;
+    transition: transform .2s ease-in;
 }
 
 .player-logo {

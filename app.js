@@ -87,6 +87,9 @@ function holdScore() {
       document
         .querySelector(`.player-${currentPlayer}-panel`)
         .classList.add("winner");
+      document.querySelector(
+        `.player-${currentPlayer}-panel .player-logo img`
+      ).style.transform = "scale(1.15)";
       isPlaying = false;
     } else {
       togglePlayer();
@@ -123,6 +126,12 @@ function init() {
   currentPlayer = 0;
   // State variable
   isPlaying = true;
+
+  // Removing any transform property on both player logos
+  document.querySelector(`.player-0-panel .player-logo img`).style.transform =
+    "scale(1)";
+  document.querySelector(`.player-1-panel .player-logo img`).style.transform =
+    "scale(1)";
 
   // Setting initial score to 0
   document.getElementById("current-0").textContent = "0";
