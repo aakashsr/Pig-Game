@@ -7,7 +7,6 @@ var lastRoll = 0;
 
 var dice0 = document.querySelector(".dice-0");
 var dice1 = document.querySelector(".dice-1");
-// var dice = document.querySelector(".dice");
 const rollBtn = document.querySelector(".btn-roll");
 const holdBtn = document.querySelector(".btn-hold");
 const newGameBtn = document.querySelector(".btn-new");
@@ -25,31 +24,19 @@ function updateCurrentScore() {
     // Show dice
     dice0.style.display = "block";
     dice1.style.display = "block";
-    // dice.style.display = "block";
 
     // Get random dice value
     let diceValue0 = Math.floor(Math.random() * 6 + 1);
     let diceValue1 = Math.floor(Math.random() * 6 + 1);
-    // let diceValue = Math.floor(Math.random() * 6 + 1);
+
     console.log(diceValue0, diceValue1);
-    // console.log(diceValue);
-    // diceValue = 6;
+
     let thisRoll = diceValue0;
     let thatRoll = diceValue1;
-    // let thisRoll = diceValue;
 
     // Get random dice pic every time
     dice0.src = `dice-${diceValue0}.png`;
     dice1.src = `dice-${diceValue1}.png`;
-    // dice.src = `dice-${diceValue}.png`;
-
-    // if (diceValue === 6) {
-    //   lastRoll = 6;
-    //   count += 1;
-    // } else {
-    //   lastRoll = 0;
-    //   count = 0;
-    // }
 
     if (diceValue0 === 1 || diceValue1 === 1) {
       togglePlayer();
@@ -86,29 +73,28 @@ function holdScore() {
   if (isPlaying) {
     // Add round score to global score
     score[currentPlayer] += roundScore;
-    // console.log(score[currentPlayer]);
-
-    // Check if player wins
-    if (score[currentPlayer] >= 100) {
-      document.querySelector(`#name-${currentPlayer}`).textContent = "Winner!";
-      document.querySelector(".player-0-panel").classList.remove("active");
-      document.querySelector(".player-1-panel").classList.remove("active");
-      document
-        .querySelector(`.player-${currentPlayer}-panel`)
-        .classList.add("winner");
-      isPlaying = false;
-    }
 
     //  Update the UI of main score
     document.querySelector(`#score-${currentPlayer}`).textContent =
       score[currentPlayer];
 
-    togglePlayer();
+    // Check if player wins
+    if (score[currentPlayer] >= 10) {
+      document.querySelector(`#name-${currentPlayer}`).textContent = "Winner!";
+      document.querySelector(".player-0-panel").classList.remove("active");
+      console.log("removed");
+      document.querySelector(".player-1-panel").classList.remove("active");
+      document
+        .querySelector(`.player-${currentPlayer}-panel`)
+        .classList.add("winner");
+      isPlaying = false;
+    } else {
+      togglePlayer();
+    }
 
     // Hide dice again
     dice0.style.display = "none";
     dice1.style.display = "none";
-    // dice.style.display = "none";
   }
 }
 
@@ -131,7 +117,6 @@ function init() {
   // Hide dice initially
   dice0.style.display = "none";
   dice1.style.display = "none";
-  // dice.style.display = "none";
 
   score = [0, 0];
   roundScore = 0;

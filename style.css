@@ -27,7 +27,7 @@ body {
 }
 
 .wrapper {
-    width: 1000px;
+    width: 1250px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -35,15 +35,74 @@ body {
     background-color: #fff;
     box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
     overflow: hidden;
+
+    border-radius: 10px;
 }
 
 .player-0-panel,
 .player-1-panel {
     width: 50%;
     float: left;
-    height: 600px;
-    padding: 100px;
+    height: 680px;
 }
+
+
+.player-logo {
+    text-align: center;
+    padding: 20px;
+}
+
+.logo0,
+.logo1 {
+    width: 100px;
+}
+
+.player-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.player-name {
+    font-size: 25px;
+    color: #fff;
+}
+
+#player-score-0,
+#player-score-1 {
+    font-size: 55px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+
+
+.name0-wrapper {
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.name1-wrapper {
+    right: 50%;
+    transform: translateX(50%);
+
+
+}
+
+.name0-wrapper,
+.name1-wrapper {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 410px;
+    height: 200px;
+    background-color: #444;
+    border-radius: 0 0 250px 250px;
+}
+
+
 
 
 
@@ -64,10 +123,9 @@ body {
 
 .player-score {
     text-align: center;
-    font-size: 80px;
+    font-size: 70px;
     font-weight: 100;
     color: #EB4D4D;
-    margin-bottom: 130px;
 }
 
 .active {
@@ -78,15 +136,14 @@ body {
     font-weight: 300;
 }
 
-.active .player-name::after {
+/* .active .player-name::after {
     content: "\2022";
     font-size: 47px;
     position: absolute;
     color: #EB4D4D;
     top: -7px;
     right: 10px;
-
-}
+} */
 
 .player-current-box {
     background-color: #EB4D4D;
@@ -106,6 +163,14 @@ body {
 
 .player-current-score {
     font-size: 30px;
+    position: absolute;
+    color: #777;
+    padding: 16px 50px;
+    background: #fff;
+    border-radius: 5px;
+    top: 72%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 button {
@@ -162,8 +227,92 @@ i {
 .dice {
     position: absolute;
     transform: translateX(-50%);
-    height: 100px;
+    height: 120px;
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+}
+
+.winner {
+    background-color: #f7f7f7;
+    font-weight: bold;
+}
+
+.winner .player-name {
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Override styles */
+
+.active .name1-wrapper .player-name::after {
+    content: "\2022";
+    font-size: 35px;
+    position: absolute;
+    color: #fff;
+    top: 45%;
+    transform: translateY(-50%);
+    right: -17%;
+}
+
+.player-name {
+    font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1;
+    color: #fff;
+}
+
+.logo0,
+.logo1 {
+    width: 98px;
+}
+
+.player-logo {
+    text-align: center;
+    padding: 25px;
+}
+
+.btn-new {
+    top: 92%;
+    left: 10%;
+}
+
+.btn-roll {
+    top: 75%;
+}
+
+.btn-hold {
+    top: 82%;
+}
+
+.btn-instructions {
+    top: 92%;
+    left: 91%;
+}
+
+.name0-wrapper {
+    background: #F13D47;
+}
+
+.name1-wrapper {
+    background: #96789A;
+}
+
+.player-score {
+    color: #fff;
+}
+
+.player-0-panel,
+.player-1-panel {
+    position: relative;
+    background: #EF686F;
+}
+
+button {
+    color: #fff;
+}
+
+i {
+    color: #fff;
 }
 
 .dice-0 {
@@ -174,13 +323,4 @@ i {
 .dice-1 {
     right: 32%;
     top: 40%;
-}
-
-.winner {
-    background-color: #f7f7f7;
-}
-
-.winner .player-name {
-    font-weight: 300;
-    color: #EB4D4D;
 }
