@@ -10,6 +10,7 @@ var dice1 = document.querySelector(".dice-1");
 const rollBtn = document.querySelector(".btn-roll");
 const holdBtn = document.querySelector(".btn-hold");
 const newGameBtn = document.querySelector(".btn-new");
+const instructionBtn = document.querySelector(".btn-instructions");
 
 // Calling setting score to 0 and hiding dice initially
 init();
@@ -18,6 +19,12 @@ rollBtn.addEventListener("click", updateCurrentScore);
 holdBtn.addEventListener("click", holdScore);
 
 newGameBtn.addEventListener("click", init);
+
+instructionBtn.addEventListener("click", () => {
+  document.querySelector(".instruction-overlay").classList.toggle("hide");
+  document.querySelector(".instruction").classList.toggle("hide");
+  console.log("ins");
+});
 
 function updateCurrentScore() {
   if (isPlaying) {
