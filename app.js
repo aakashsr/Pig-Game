@@ -86,7 +86,7 @@ function holdScore() {
       score[currentPlayer];
 
     // Check if player wins
-    if (score[currentPlayer] >= 10) {
+    if (score[currentPlayer] >= 100) {
       document.querySelector(`#name-${currentPlayer}`).textContent = "Winner!";
       document.querySelector(".player-0-panel").classList.remove("active");
       console.log("removed");

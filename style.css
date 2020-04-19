@@ -170,7 +170,8 @@ body {
     font-size: 30px;
     position: absolute;
     color: #777;
-    padding: 16px 50px;
+    padding: 16px 20px;
+    width: 125px;
     background: #fff;
     border-radius: 5px;
     top: 74%;
