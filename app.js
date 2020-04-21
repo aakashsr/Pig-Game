@@ -144,6 +144,11 @@ function togglePlayer() {
 }
 
 function init() {
+  // Showing targetScoreContainer and hiding winScoreContainer initially
+  document.querySelector(".winScoreContainer").style.display = "none";
+  document.querySelector(".tagetscoreContainer").style.display = "block";
+  document.querySelector(".target-score").value = "";
+
   // Hide dice initially
   dice0.style.display = "none";
   dice1.style.display = "none";
