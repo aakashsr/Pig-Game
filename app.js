@@ -12,6 +12,23 @@ const holdBtn = document.querySelector(".btn-hold");
 const newGameBtn = document.querySelector(".btn-new");
 const instructionBtn = document.querySelector(".btn-instructions");
 
+// Capturing enter button
+document.addEventListener("keypress", function (e) {
+  // Getting target score value;
+  var targetScore = document.querySelector(".target-score").value;
+  if (e.which === 13 || e.keyCode === 13) {
+    if (targetScore !== "") {
+      setScore(targetScore);
+    }
+  }
+});
+// Function to display set score input initially and hide it later and to hide goal score initially and display it later.
+function setScore(targetScore) {
+  document.querySelector(".winScore").textContent = targetScore;
+  document.querySelector(".winScoreContainer").style.display = "block";
+  document.querySelector(".tagetscoreContainer").style.display = "none";
+}
+
 // Calling setting score to 0 and hiding dice initially
 init();
 
@@ -27,17 +44,15 @@ instructionBtn.addEventListener("click", () => {
 });
 
 function updateCurrentScore() {
-  // Hide the target score instruction
-  document.querySelector(".tagetscoreContainer").style.display = "none";
-
-  // extract the input value
-  // Setting the target score
+  // Getting target score value;
   var targetScore = document.querySelector(".target-score").value;
-  console.log(targetScore);
-  document.querySelector(".winScore").textContent = targetScore;
-  document.querySelector(".winScoreContainer").style.display = "block";
-
   if (isPlaying) {
+    if (targetScore !== "") {
+      setScore(targetScore);
+    } else {
+      return false; // If input is empty , move out and don't run any code below
+    }
+
     // Show dice
     dice0.style.display = "block";
     dice1.style.display = "block";
@@ -87,8 +102,11 @@ function holdScore() {
     document.querySelector(`#score-${currentPlayer}`).textContent =
       score[currentPlayer];
 
+    // Capturing target score of game to compare with player score
+    var targetScore = document.querySelector(".target-score").value;
+
     // Check if player wins
-    if (score[currentPlayer] >= targetScore.value) {
+    if (score[currentPlayer] >= targetScore) {
       document.querySelector(`#name-${currentPlayer}`).textContent = "Winner!";
       document.querySelector(".player-0-panel").classList.remove("active");
       console.log("removed");
