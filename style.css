@@ -357,6 +357,8 @@ i {
     font-size: 30px;
     margin-bottom: 14px;
     font-weight: 400;
+    display: block;
+    text-align: center;
 }
 
 .goal {
