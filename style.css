@@ -360,6 +360,7 @@ i {
     display: block;
     text-align: center;
     outline: none;
+    border: none;
 }
 
 .goal,
