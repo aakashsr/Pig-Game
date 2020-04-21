@@ -351,14 +351,15 @@ i {
 .target-score {
     background: #fff;
     color: #777;
-    padding: 16px 20px;
-    width: 165px;
+    padding: 14px 20px;
+    width: 150px;
     border-radius: 5px;
     font-size: 30px;
     margin-bottom: 14px;
     font-weight: 400;
     display: block;
     text-align: center;
+    outline: none;
 }
 
 .goal,
