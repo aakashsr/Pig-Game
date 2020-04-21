@@ -361,9 +361,28 @@ i {
     text-align: center;
 }
 
-.goal {
-    color: #fff;
+.goal,
+.goal-text,
+.winScore {
+    color: rgb(228, 223, 218);
     font-size: 22px;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     font-weight: 400;
+}
+
+.goal-text {
+    font-size: 18px;
+}
+
+.winScore {
+    font-size: 34px;
+}
+
+.winScoreContainer {
+    position: absolute;
+    left: 50%;
+    top: 7%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: none;
 }

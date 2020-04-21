@@ -34,6 +34,8 @@ function updateCurrentScore() {
   // Setting the target score
   var targetScore = document.querySelector(".target-score").value;
   console.log(targetScore);
+  document.querySelector(".winScore").textContent = targetScore;
+  document.querySelector(".winScoreContainer").style.display = "block";
 
   if (isPlaying) {
     // Show dice
